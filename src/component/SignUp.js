@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 
 //for redirect home page
 import {useNavigate} from 'react-router-dom'
@@ -9,6 +9,15 @@ const SignUp =()=>
     const [password, setPassword]=useState('');
     const [email, setEmail]=useState('');
     const navigate = new useNavigate();
+    
+    //when user logoff then the logoff route will block
+    useEffect(()=>{
+      const auth = localStorage.getItem('user')
+      if(auth)
+      {
+        navigate('/')
+      }
+    })
     const collectdata= async()=>
     {
         //console.log(name);
@@ -27,6 +36,7 @@ const SignUp =()=>
         });
         result= await result.json();
         console.log(result)
+        localStorage.setItem('user',JSON.stringify(result))
         if(result)
         {
             navigate('/')
