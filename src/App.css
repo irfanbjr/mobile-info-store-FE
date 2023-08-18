@@ -2,16 +2,48 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.nev_ul li{
+  display: inline-block;
+  padding: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.nev_ul li a{
+  color: white;
+  text-decoration: none;
 }
+.nev_ul
+{
+  padding: 5px;
+  margin: 0;
+  background-color: #282c34;
+}
+.footer-h3
+{
+  position: absolute;
+  bottom: 0;
+  background-color: black;
+  color: white;
+  width: 100%;
+  text-align: center;
+}
+.inputBox 
+{
+  display:block;
+    margin: 10px;
+    padding: 10px;
+}
+.signup-div
+{
+  margin-left: 30%;
+}
+.btnLogup
+{
+  background-color: teal;
+  margin: 10px;
+  color: white;
+  cursor: pointer;
+}
+
 
 .App-header {
   background-color: #282c34;
