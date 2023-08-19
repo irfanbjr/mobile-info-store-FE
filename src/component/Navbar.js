@@ -13,24 +13,19 @@ function Navbar() {
  
   return (
     <nav>
-        <ul className='nev_ul'>
+      <img className='logo' src="https://www.shutterstock.com/shutterstock/photos/2172716439/display_1500/stock-vector-phone-shop-logo-designs-modern-phone-logo-designs-vector-icon-app-media-business-technology-2172716439.jpg" alt="" />
+        {auth ? <ul className='nev_ul'>
             <li><Link to='/'>Product</Link></li>
             <li><Link to='/add'>Add Product</Link></li>
             <li><Link to='/update'>Update product</Link></li>
-            {/* <li></li> */}
             <li><Link to='/profile'>Profile</Link></li>
+            <li><Link onClick={logout} to='/signup'>Log Out -({JSON.parse(auth).name}) </Link></li>
 
-            {/* Once login will Hide signup and login other wise show */}
-            {
-              auth ? <li><Link onClick={logout} to='/signup'>Log Out</Link></li>
-              
-             :
-            <>
+        </ul>:
+        <ul className='nev_ul nav-right'>
               <li><Link to='/login'>Login</Link></li>
               <li><Link to='/signup'>Sign Up</Link></li>
-            </>
-            }
-        </ul>
+        </ul>}
     </nav>
   )
 }
