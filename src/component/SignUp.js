@@ -10,7 +10,7 @@ const SignUp =()=>
     const [email, setEmail]=useState('');
     const navigate = new useNavigate();
     
-    //when user logoff then the logoff route will block
+    ////if any body try with url to add manully  we block with below method
     useEffect(()=>{
       const auth = localStorage.getItem('user')
       if(auth)
