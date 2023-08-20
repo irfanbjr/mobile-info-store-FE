@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-
+import {Link} from "react-router-dom"
 const Productlist = () => {
     const [products,setProducts]=useState([]);
 
@@ -50,7 +50,7 @@ const Productlist = () => {
         <li>Price</li>
         <li>Category</li>
         <li>Company</li>
-        <li>Operation</li>
+        <li >Operation</li>
       </ul>
       {
         // this loog will one by one item
@@ -61,7 +61,12 @@ const Productlist = () => {
         <li>${item.price}</li>
         <li>{item.category}</li>
         <li>{item.company}</li>
-        <li><button onClick={() => handleDelete(item._id)} >Delete</button></li>
+        {/* This click must be by refrenc other wise not working will
+         delete all record it once i.e if call "onClick=handleDelete(item._id)} will not work fine 
+         the below Arrow calling must" */}
+        <li><button onClick={() => handleDelete(item._id)} >Delete</button>
+        <Link to={"/update/"+item._id}>Update</Link>
+        </li>
       </ul>
         )
       }
