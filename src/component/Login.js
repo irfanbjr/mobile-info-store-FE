@@ -12,8 +12,9 @@ const Login = () => {
     const auth=localStorage.getItem('user');
     if(auth)
     {
-        navigate("/");    }
-   })
+        navigate("/");   
+    }
+   });
     // console.log(email,password)
     const handleLogin=async()=>
     {
