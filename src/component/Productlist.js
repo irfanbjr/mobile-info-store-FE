@@ -39,9 +39,28 @@ const Productlist = () => {
         console.log('delete event called')
         Delete(id);
     }
+    const handelSearch= async(event)=>
+    {
+        let key =event.target.value;
+        if(key)
+        {
+            let result= await fetch(`http://localhost:5000/search/${key}`);
+            result = await result.json();
+            if(result)
+            {
+                setProducts(result);
+            }
+            console.log(result)
+        }
+        else{
+            getProducts();
+        }
+    }
+
   return (
     <div className='product-list'>
       <h1>Product list</h1>
+      <input onChange={handelSearch} className='search-product' type='text' placeholder='Search Product'/>
 
       {/* to show data we make static list */}
       <ul>
@@ -54,6 +73,8 @@ const Productlist = () => {
       </ul>
       {
         // this loog will one by one item
+       //the below is if else condition also
+        products.length>0?
         products.map((item,index)=>
         <ul  key={item._id}>
         <li>{index+1 }</li>
@@ -69,6 +90,10 @@ const Productlist = () => {
         </li>
       </ul>
         )
+       // the below is else condition when have no search item
+        :<h1>
+            No Result Found
+        </h1>
       }
     </div>
   )
