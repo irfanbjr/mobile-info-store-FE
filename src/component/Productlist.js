@@ -13,7 +13,16 @@ const Productlist = () => {
 
     const getProducts=async ()=>
     {
-        let result= await fetch('http://localhost:5000/products');
+        let result= await fetch('http://localhost:5000/products',
+        {
+          headers:
+          {
+            // this bearer is extra for more secure on BE side I removed this
+            // so if any body genreate token and pass only token not with any other word with space
+            // then will not work only token
+            Authorization:`bearer ${JSON.parse(localStorage.getItem('token'))}`
+          }
+        });
        // rsult have in readstream form data so we need to convert into json
         result= await result.json();
         setProducts(result);
@@ -24,19 +33,25 @@ const Productlist = () => {
     
         let result = await fetch(`http://localhost:5000/product/${id}`,{
             method:"Delete",
-
+            headers:
+            {
+              // this bearer is extra for more secure on BE side I removed this
+              // so if any body genreate token and pass only token not with any other word with space
+              // then will not work only token
+              Authorization:`bearer ${JSON.parse(localStorage.getItem('token'))}`
+            }
         });
         result= await result.json();
         if(result)
         {
            getProducts();
+           console.log('Record Deleted');
             //alert('Record is deleted')
         }
 
     }
     const handleDelete=(id)=>
     {
-        console.log('delete event called')
         Delete(id);
     }
     const handelSearch= async(event)=>
@@ -44,7 +59,15 @@ const Productlist = () => {
         let key =event.target.value;
         if(key)
         {
-            let result= await fetch(`http://localhost:5000/search/${key}`);
+            let result= await fetch(`http://localhost:5000/search/${key}`,{
+              headers:
+              {
+                // this bearer is extra for more secure on BE side I removed this
+                // so if any body genreate token and pass only token not with any other word with space
+                // then will not work only token
+                Authorization:`bearer ${JSON.parse(localStorage.getItem('token'))}`
+              }
+            });
             result = await result.json();
             if(result)
             {

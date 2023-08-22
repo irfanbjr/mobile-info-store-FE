@@ -8,6 +8,7 @@ const SignUp =()=>
     const [name, setName]=useState('');
     const [password, setPassword]=useState('');
     const [email, setEmail]=useState('');
+    const [error,setError]= React.useState('');
     const navigate = new useNavigate();
     
     ////if any body try with url to add manully  we block with below method
@@ -20,6 +21,11 @@ const SignUp =()=>
     })
     const collectdata= async()=>
     {
+        if(!name || !email || !password)
+        {
+            setError(true);
+            return false;
+        }
         //console.log(name);
         //console.log(email);
         //console.log(password);
@@ -36,7 +42,8 @@ const SignUp =()=>
         });
         result= await result.json();
         console.log(result)
-        localStorage.setItem('user',JSON.stringify(result))
+        localStorage.setItem('user',JSON.stringify(result.result));
+        localStorage.setItem('token',JSON.stringify(result.auth));
         if(result)
         {
             navigate('/')
@@ -48,10 +55,12 @@ const SignUp =()=>
         <div className='signup-div'>
             <h1>Register</h1>
             <input className='inputBox' value={name} onChange={(e)=>{setName(e.target.value)}} type="text" placeholder='Enter Name'/>
+            {error && !name && <span className="invalid-input">Enter valid name </span>}
             <input className='inputBox'value={email} onChange={(e)=>{setEmail(e.target.value)}} type="text" placeholder='Enter Email'/>
-            
+            {error && !email && <span className="invalid-input">Enter valid email </span>}
             <input className='inputBox' value={password} onChange={(e)=>{setPassword(e.target.value)}} type="text" placeholder='Enter password'/>
-            <button onClick={collectdata} className="btnLogup" type='button'>Log Up</button>
+            
+            {error && !password && <span className="invalid-input">Enter valid password </span>}<button onClick={collectdata} className="btnLogup" type='button'>Log Up</button>
         </div>
     )
 }

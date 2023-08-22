@@ -8,7 +8,6 @@ function Navbar() {
   {
     localStorage.clear()
     navigate('/singup');
-    console.log('click log out')
   })
  
   return (
@@ -17,7 +16,7 @@ function Navbar() {
         {auth ? <ul className='nev_ul'>
             <li><Link to='/'>Product</Link></li>
             <li><Link to='/add'>Add Product</Link></li>
-            <li><Link to='/update'>Update product</Link></li>
+            {/* <li><Link to='/update/:id'>Update product</Link></li> */}
             <li><Link to='/profile'>Profile</Link></li>
             <li><Link onClick={logout} to='/signup'>Log Out -({JSON.parse(auth).name}) </Link></li>
 
