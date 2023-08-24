@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import {Link} from "react-router-dom"
+import {Link,useNavigate} from "react-router-dom"
 const Productlist = () => {
     const [products,setProducts]=useState([]);
+    const navigate = useNavigate();
 
     useEffect(()=>
     {
@@ -50,9 +51,13 @@ const Productlist = () => {
         }
 
     }
+    const handleLink = (id) => {
+      navigate(`/update/${id}`);
+     // return <Link className='btnList-link' to={`/update/${id}`}>Update</Link>;
+    };
     const handleDelete=(id)=>
     {
-        Delete(id);
+      Delete(id);
     }
     const handelSearch= async(event)=>
     {
@@ -82,17 +87,17 @@ const Productlist = () => {
 
   return (
     <div className='product-list'>
-      <h1>Product list</h1>
+      <h1 className='listHeader'>Product list</h1>
       <input onChange={handelSearch} className='search-product' type='text' placeholder='Search Product'/>
 
       {/* to show data we make static list */}
       <ul>
-        <li>S. No</li>
-        <li>Name</li>
-        <li>Price</li>
-        <li>Category</li>
-        <li>Company</li>
-        <li >Operation</li>
+        <li className='listHeader'>S. No</li>
+        <li className='listHeader'>Name</li>
+        <li className='listHeader'>Price</li>
+        <li className='listHeader'>Category</li>
+        <li className='listHeader'>Company</li>
+        <li className='listHeader'>Operation</li>
       </ul>
       {
         // this loog will one by one item
@@ -108,8 +113,8 @@ const Productlist = () => {
         {/* This click must be by refrenc other wise not working will
          delete all record it once i.e if call "onClick=handleDelete(item._id)} will not work fine 
          the below Arrow calling must" */}
-        <li><button onClick={() => handleDelete(item._id)} >Delete</button>
-        <Link to={"/update/"+item._id}>Update</Link>
+        <li><button className='btnList' onClick={() => handleDelete(item._id)} >Delete</button>
+        <button className='btnList' onClick={() => handleLink(item._id)} >Update</button>
         </li>
       </ul>
         )

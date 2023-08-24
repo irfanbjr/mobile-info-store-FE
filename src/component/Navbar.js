@@ -6,7 +6,9 @@ function Navbar() {
   const navigate= new useNavigate();
   const logout=(()=>
   {
-    localStorage.clear()
+    //localStorage.clear()
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
     navigate('/singup');
   })
  

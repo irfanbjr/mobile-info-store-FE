@@ -11,42 +11,163 @@
   color: white;
   text-decoration: none;
 }
+.btnList
+{
+  cursor: pointer;
+  margin-left: 2px;
+  top: 10px;
+  height: 20px;
+  background: red;
+    border: #5086f0;
+    color: white;
+}
 .nev_ul
 {
   padding: 5px;
   margin: 0;
-  background-color: #282c34;
+  background-color: #5086f0;
 }
 .footer-h3
 {
-  position: absolute;
+  height: 5%;
+  position: fixed;
   bottom: 0;
-  background-color: black;
+  background-color: #5086f0;;
   color: white;
   width: 100%;
   text-align: center;
 }
+.footer-text
+{
+  margin: 1px;
+ font-size: medium
+}
 .inputBox 
 {
+  border: 2px solid #5086f0;;
   display:block;
     margin: 10px;
     padding: 10px;
 }
-.signup-div
+.signup-div , .product
 {
-  margin-left: 30%;
+  margin-left: 40%;
+}
+.logo
+{
+  margin-top: 2px;
+  width: 45px;
+  float: left;
+  border-radius: 50%;
+  margin-left: 20px;
+}
+.uploded-imag
+{
+  margin-top: -18px;
+  width: 45px;
+  float: left;
+  border-radius: 50%;
+  margin-left: 20px;
+}
+
+.mainImage-div
+{
+  position: absolute;
+  bottom: 35%;
+  /* background-color: #5086f0; */
+  /* width: 275px; */
+  margin-left: 1px;
+  /* border: 1px solid #5086f0; */
+}
+.profile-dev
+{
+  display: -webkit-inline-box;
+  position: absolute;
+    margin-left: -25%;
+    margin-top: 30%;
+    color: dodgerblue;
+}
+.image-profile
+{
+  border-radius: 50%;
+  width: 20%
+}
+.image-upload-btn
+{
+  margin-left: 17%;
+  border: 1px solid #5086f0;
+}
+.listHeader
+{
+  color: #5086f0;
+  text-decoration-line: underline;
+  font-style: italic;
+  font-weight: bold;
+}
+.mainImage
+{
+  margin-top: 80px;
+    width: 275px;
+    float: left;
+    border-radius: 50%;
+    margin-left: -1px;
+    /* border: 1px solid #5086f0; */
+}
+
+.nav-right
+{
+  text-align: right;
 }
 .btnLogup
 {
-  background-color: teal;
-  margin: 10px;
+  margin-left: 2%;
+  margin-top: 10px;
+  display: block;
+  background-color:#5086f0;;
   color: white;
   cursor: pointer;
 }
-
+.invalid-input
+{
+  color: red;
+  margin: 10px;
+  margin-top: -10px;
+  display: block;
+}
+.product-list
+{
+  text-align: center;
+  margin-top: 1%;
+  margin-left: 13%;
+  
+}
+.product-list ul li{
+  display: inline-block;
+  border: 1px solid #5086f0;
+  padding: 0.5%;
+  width: 9%;
+}
+.product-list ul
+{
+  margin: 0px;
+}
+.search-product
+{
+  height: 30px;
+    border: 2px solid #5086f0;
+    margin: 20px;
+    width: 25%;
+}
+.profile
+{
+  position: absolute;
+  margin-left: 30%;
+  margin-top: 10%;
+  color: dodgerblue;
+}
 
 .App-header {
-  background-color: #282c34;
+  background-color: #2e65d3;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

@@ -37,7 +37,7 @@ const Addproduct=()=>
     }
     return(
         <div className="product">
-            <h1>Add Product</h1>
+            <h1 className='listHeader'>Add Product</h1>
             <input value={name} onChange={(e)=>{setName(e.target.value)}} className="inputBox" type="text" placeholder="Enter Product Name"/>
             {/* //for error  & error, field name for when try to submit without text */}
             {error && !name && <span className="invalid-input">Enter valid name </span>}
